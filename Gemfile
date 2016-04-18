@@ -6,4 +6,5 @@ gem "sinatra"
 group :test do
   gem "rspec"
   gem "fakeredis", :require => "fakeredis/rspec"
+  gem "rack-test"
 end
