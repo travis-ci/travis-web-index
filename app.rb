@@ -5,7 +5,9 @@ get '/' do
   content_type 'text/html'
 
   redis = Redis.new
-  project = 'travis'
-  index_key = params[:index_key] || redis.get("#{project}:index:current")
-  redis.get("#{project}:index:#{index_key}")
+
+  branch_name = request.host.split('.')[0]
+
+  index_key = params[:index_key] || redis.get("#{branch_name}:current")
+  redis.get("#{branch_name}:#{index_key}")
 end
