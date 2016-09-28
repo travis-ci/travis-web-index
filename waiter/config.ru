@@ -30,7 +30,6 @@ use Travis::Web::ApiRedirect do |app|
 end
 
 if ENV['TRAVIS_PRO']
-  ENV['API_ENDPOINT'] ||= "https://api.travis-ci.com"
   ENV['PAGES_ENDPOINT'] ||= "https://billing.travis-ci.com"
   ENV['BILLING_ENDPOINT'] ||= "https://billing.travis-ci.com"
 
