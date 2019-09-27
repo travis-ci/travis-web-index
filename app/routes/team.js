@@ -42,13 +42,6 @@ export default TravisRoute.extend({
         country: 'germany',
         image: 'mathias'
       }, {
-        name: 'Piotr Sarnacki',
-        title: 'Code Monkey',
-        handle: 'drogus',
-        nationality: 'poland',
-        country: 'germany',
-        image: 'piotr'
-      }, {
         name: 'Anika Lindtner',
         title: 'Head Catwoman',
         handle: 'langziehohr',
