@@ -205,46 +205,6 @@ class Travis::Web::App
     end
 
     def set_config(string, opts = {})
-      # TODO: clean up
-      config = {}
-      config['defaultTitle'] = title
-      config['apiEndpoint'] = options[:api_endpoint] if options[:api_endpoint]
-      config['pagesEndpoint'] = options[:pages_endpoint] if options[:pages_endpoint]
-      config['billingEndpoint'] = options[:billing_endpoint] if options[:billing_endpoint]
-      config['sourceEndpoint'] = options[:source_endpoint] if options[:source_endpoint]
-      pusher = {}
-      pusher['key'] = options[:pusher_key] if options[:pusher_key]
-      pusher['host'] = options[:pusher_host] if options[:pusher_host]
-      pusher['path'] = options[:pusher_path] if options[:pusher_path]
-      pusher['channelPrefix'] = options[:pusher_channel_prefix] if options[:pusher_channel_prefix]
-      config['pusher'] = pusher
-
-      config['ember-cli-pendo'] = { apiKey: options[:pendo_key] }
-
-      config['gaCode'] = options[:ga_code] if options[:ga_code]
-      config['pro'] = options[:pro] if options[:pro]
-      config['enterprise'] = options[:enterprise] if options[:enterprise]
-
-      config['codeClimate'] = options[:code_climate] if options[:code_climate]
-      config['codeClimateUrl'] = options[:code_climate_url] if options[:code_climate_url]
-      config['charmKey'] = options[:charm_key] if options[:charm_key]
-      config['githubOrgsOauthAccessSettingsUrl'] = options[:github_orgs_oauth_access_settings_url]
-      config['ajaxPolling'] = true if options[:ajax_polling]
-      config['userlike'] = true if options[:userlike]
-
-      config['endpoints'] = {
-        'sshKey' => options[:ssh_key_enabled],
-        'caches' => options[:caches_enabled]
-      }
-
-      regexp = %r(<meta name="travis/config/environment"\s+content="([^"]+)")
-      string.gsub!(regexp) do
-        ember_config = JSON.parse(URI.unescape($1))
-
-        config = deep_merge ember_config, config
-        config = URI.escape config.to_json
-
-        %(<meta name="travis/config/environment" content="#{config}")
-      end
+      # no-op
     end
 end
